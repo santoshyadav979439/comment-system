@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 const CommentBox = (id) => {
-  console.log("inside commentbox");
+//  console.log("inside commentbox");
   const dispatch = useDispatch();
   const name = useRef(null);
   const comment = useRef(null);
@@ -32,7 +32,7 @@ const CommentBox = (id) => {
       />
       <input
         ref={comment}
-        className="comment-box"
+        className="comment-box__text"
         type="text"
         placeholder="Enter you comment here"
       />

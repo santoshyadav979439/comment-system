@@ -1,23 +1,23 @@
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import CommentBox from "./CommentBox";
-const Comment = ({ body, name, id, isOpen }) => {
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import CommentBox from './CommentBox';
+const Comment = ({ body, name, id, isOpen, addTab }) => {
   //const openReply = useSelector((state) => state.openReply);
   const dispatch = useDispatch();
   //console.log("id is", id);
   const onClickListener = (event, id) => {
-    console.log("id is", id);
-    dispatch({ type: "openReply", payload: id });
+    //console.log("id is", id);
+    dispatch({ type: 'openReply', payload: id });
   };
   // const commentId = useSelector((state) => state.commentId);
   return (
-    <div className="Comment">
+    <div className={addTab ? 'Comment add-tab' : Comment}>
       <AccountCircleIcon />
-      <div className="name-comment">
-        <div className="my-name">{name}</div>
+      <div className='name-comment'>
+        <div className='my-name'>{name}</div>
         <div>{body}</div>
-        <div style={{ fontSize: "10px", cursor: "pointer" }}>
+        <div style={{ fontSize: '10px', cursor: 'pointer' }}>
           <i onClick={(event) => onClickListener(event, id)}>reply</i>
         </div>
         {isOpen ? <CommentBox id={id} /> : null}
